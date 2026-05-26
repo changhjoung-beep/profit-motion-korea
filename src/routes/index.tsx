@@ -49,17 +49,18 @@ function Index() {
 
   const next = () => {
     if (step >= 1 && step <= 3) {
-      const err = validate(step);
+      const s = step as 1 | 2 | 3;
+      const err = validate(s);
       if (err) {
         setError(err);
         return;
       }
       setError(null);
-      if (step === 3) {
+      if (s === 3) {
         runAnalysis();
         return;
       }
-      setStep((step + 1) as 1 | 2 | 3);
+      setStep(((s as number) + 1) as 1 | 2 | 3);
     }
   };
 
@@ -98,7 +99,7 @@ function Index() {
         {step === 0 && <ModeSelect onSelect={selectMode} />}
 
         {step >= 1 && step <= 3 && (
-          <WizardShell step={step} state={state} error={error} onBack={back} onNext={next}>
+          <WizardShell step={step as 1 | 2 | 3} state={state} error={error} onBack={back} onNext={next}>
             {step === 1 && <Step1 s={state} patch={patch} />}
             {step === 2 && <Step2 s={state} patch={patch} />}
             {step === 3 && <Step3 s={state} patch={patch} />}
