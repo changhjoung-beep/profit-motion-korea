@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { initialState, computeResult, type CalcState, type Mode, type CalcResult } from "@/components/calculator/types";
+import { initialState, computeResult, fetchResult, type CalcState, type Mode, type CalcResult } from "@/components/calculator/types";
 import { Step1, Step2, Step3 } from "@/components/calculator/Steps";
 import { ResultDashboard, LoadingDashboard } from "@/components/calculator/Result";
 
@@ -75,14 +75,19 @@ function Index() {
     setStep((step - 1) as 0 | 1 | 2);
   };
 
-  const runAnalysis = () => {
+  const runAnalysis = async () => {
     setStep(4);
     setLoading(true);
     setResult(null);
-    setTimeout(() => {
-      setResult(computeResult(state));
+    try {
+      const r = await fetchResult(state);
+      setResult(r);
+    } catch (e) {
+      console.error(e);
+      setResult(computeResult(state)); // 에러 시 로컬 fallback
+    } finally {
       setLoading(false);
-    }, 3000);
+    }
   };
 
   const reset = () => {
