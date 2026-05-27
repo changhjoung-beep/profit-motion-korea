@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { initialState, computeResult, type CalcState, type Mode, type CalcResult } from "@/components/calculator/types";
+import { initialState, computeResult, fetchResult, type CalcState, type Mode, type CalcResult } from "@/components/calculator/types";
 import { Step1, Step2, Step3 } from "@/components/calculator/Steps";
 import { ResultDashboard, LoadingDashboard } from "@/components/calculator/Result";
 
