@@ -75,14 +75,19 @@ function Index() {
     setStep((step - 1) as 0 | 1 | 2);
   };
 
-  const runAnalysis = () => {
+  const runAnalysis = async () => {
     setStep(4);
     setLoading(true);
     setResult(null);
-    setTimeout(() => {
-      setResult(computeResult(state));
+    try {
+      const r = await fetchResult(state);
+      setResult(r);
+    } catch (e) {
+      console.error(e);
+      setResult(computeResult(state)); // 에러 시 로컬 fallback
+    } finally {
       setLoading(false);
-    }, 3000);
+    }
   };
 
   const reset = () => {
