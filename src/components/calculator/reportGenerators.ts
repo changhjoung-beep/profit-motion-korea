@@ -9,7 +9,7 @@ const krw = (n?: number) =>
   n == null ? "—" : new Intl.NumberFormat("ko-KR", { maximumFractionDigits: 0 }).format(Math.round(n));
 
 const todayStr = () => new Date().toISOString().slice(0, 10);
-const safeName = (s?: string) => (s ?? "motionx").replace(/[^\w가-힣]+/g, "_").slice(0, 30);
+const safeName = (s?: string) => (s ?? "mxcommerce").replace(/[^\w가-힣]+/g, "_").slice(0, 30);
 
 type RGB = [number, number, number];
 const COLOR = {
@@ -147,7 +147,7 @@ export function downloadPricingGuide(r: EngineResult) {
   });
 
   footer(doc, H, "MX Commerce 가격 검증 가이드 · Scout → Pricing → Copy → GTM → Design");
-  doc.save(`MotionX_가격가이드_${safeName(r.keyword)}_${todayStr()}.pdf`);
+  doc.save(`MX Commerce_가격가이드_${safeName(r.keyword)}_${todayStr()}.pdf`);
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -210,7 +210,7 @@ export function downloadAdCopyPack(r: EngineResult) {
   }
 
   footer(doc, H, "MX Commerce 광고 카피 팩");
-  doc.save(`MotionX_광고카피팩_${safeName(r.keyword)}_${todayStr()}.pdf`);
+  doc.save(`MX Commerce_광고카피팩_${safeName(r.keyword)}_${todayStr()}.pdf`);
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -306,7 +306,7 @@ export function downloadScoutSummary(r: EngineResult) {
   });
 
   footer(doc, H, "MX Commerce Scout 시장 리포트 · Scout Agent");
-  doc.save(`MotionX_Scout리포트_${safeName(r.keyword)}_${todayStr()}.pdf`);
+  doc.save(`MX Commerce_Scout리포트_${safeName(r.keyword)}_${todayStr()}.pdf`);
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -394,5 +394,5 @@ export function downloadDesignBrief(r: EngineResult) {
   }
 
   footer(doc, H, "MX Commerce 디자인 브리프 · Design Brief Agent");
-  doc.save(`MotionX_디자인브리프_${safeName(r.keyword)}_${todayStr()}.pdf`);
+  doc.save(`MX Commerce_디자인브리프_${safeName(r.keyword)}_${todayStr()}.pdf`);
 }
