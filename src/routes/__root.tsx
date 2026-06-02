@@ -72,14 +72,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "MX Commerce" },
+      {
+        name: "description",
+        content:
+          "MX Commerce calculates Korean e-commerce profitability, aiding pricing and market research.",
+      },
+      { name: "author", content: "MX Commerce" },
+      { property: "og:title", content: "MX Commerce" },
+      {
+        property: "og:description",
+        content:
+          "MX Commerce calculates Korean e-commerce profitability, aiding pricing and market research.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "MX Commerce" },
+      {
+        name: "twitter:description",
+        content:
+          "MX Commerce calculates Korean e-commerce profitability, aiding pricing and market research.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/874c466c-bfb0-4603-abc2-08d119456c61/id-preview-36be84f6--483d6b90-1d82-40a4-bf57-2c0a40424bd4.lovable.app-1780054432351.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/874c466c-bfb0-4603-abc2-08d119456c61/id-preview-36be84f6--483d6b90-1d82-40a4-bf57-2c0a40424bd4.lovable.app-1780054432351.png",
+      },
     ],
     links: [
       {
